@@ -40,4 +40,14 @@ group :test do
   gem 'test-unit-minitest'
 end
 
+group :deployment do
+  # bcrypt_pbkdf and ed35519 is required for capistrano deployments when using ed25519 keys; see https://github.com/miloserdow/capistrano-deploy/issues/42
+  gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0', require: false
+  gem 'capistrano', '~> 3', require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano-locally', require: false
+  gem 'capistrano-rbenv', require: false
+  gem 'ed25519', '>= 1.2', '< 2.0', require: false
+end
+
 gem "binding_of_caller", "~> 1.0"
